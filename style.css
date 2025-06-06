@@ -1,10 +1,15 @@
 /* Reset básico */
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f3;
     color: #333;
+    line-height: 1.6;
 }
 
 /* Navbar fixa */
@@ -13,8 +18,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #00695c;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(90deg, #00796b, #004d40);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
 }
 
@@ -23,57 +28,48 @@ body {
     justify-content: center;
     align-items: center;
     list-style: none;
-    margin: 0;
-    padding: 0.5rem 1rem;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.navbar nav ul li {
-    margin: 0;
+    padding: 1rem;
+    gap: 2rem;
 }
 
 .navbar nav ul li a {
     color: white;
-    font-weight: 600;
+    font-weight: bold;
     text-decoration: none;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: background 0.3s;
 }
 
-.navbar nav ul li a:hover,
-.navbar nav ul li a:focus {
-    background-color: #004d40;
-    outline: none;
+.navbar nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Espaçamento para compensar a navbar fixa */
+/* Espaço para compensar a navbar fixa */
 .main-header {
-    background-color: #00695c;
+    background: linear-gradient(135deg, #009688, #004d40);
     color: white;
-    padding: 2rem;
+    padding: 4rem 2rem 2rem 2rem;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 60px; /* altura da navbar */
+    margin-top: 70px;
 }
 
 .main-header h1 {
-    margin-bottom: 0.5rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .main-header p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 main {
-    padding: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    max-width: 1100px;
-    margin: auto;
 }
 
 .grid-layout {
@@ -83,41 +79,49 @@ main {
 }
 
 section.introducao,
-section.ajuda {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    grid-column: 1 / -1;
+section.ajuda,
+section.video {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
 }
 
 section.tipo {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    border: 2px solid #cfd8dc;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section.tipo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 section h2 {
-    color: #00695c;
+    color: #00796b;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
 }
 
 section p,
 section ul {
     font-size: 1rem;
-    line-height: 1.6;
     text-align: left;
+    margin-bottom: 1rem;
 }
 
 section a {
-    color: #00796b;
+    color: #00695c;
     text-decoration: none;
+    font-weight: bold;
 }
 
 section a:hover {
@@ -126,6 +130,7 @@ section a:hover {
 
 section ul {
     padding-left: 1.5rem;
+    list-style-type: disc;
 }
 
 section li {
@@ -136,36 +141,36 @@ img {
     width: 100%;
     height: auto;
     margin-top: 1rem;
-    border-radius: 8px;
+    border-radius: 12px;
     object-fit: cover;
     max-height: 200px;
 }
 
 footer {
-    background-color: #004d40;
+    background: #004d40;
     color: white;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
     font-size: 0.9rem;
+    border-top: 4px solid #00796b;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .navbar nav ul {
         flex-direction: column;
         gap: 0.5rem;
     }
-}
 
-@media (max-width: 600px) {
     .main-header h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
+
     .main-header p {
         font-size: 1rem;
     }
+
     section h2 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 }
